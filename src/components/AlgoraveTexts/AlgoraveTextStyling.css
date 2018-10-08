@@ -1,0 +1,42 @@
+.algoraveTextTitle{
+  text-align: center;
+}
+
+.titleMargins {
+  padding-top: 5%
+}
+
+.algoraveText {
+
+}
+
+.landscape-textMargins {
+  margin-right: 10em;
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+
+.portrait-textMargins {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 600ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 600ms ease-in;
+}

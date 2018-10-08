@@ -1,0 +1,24 @@
+{
+  "name": "co34pt-gallery-attempt-2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-grid-system": "^4.1.4",
+    "react-responsive": "^5.0.0",
+    "react-responsive-carousel": "^3.1.41",
+    "react-scripts": "1.1.4",
+    "react-sound": "^1.2.0",
+    "react-spinners": "^0.3.3",
+    "react-text-transition": "^0.1.6",
+    "react-transition-group": "^1.2.1",
+    "tachyons": "^4.11.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

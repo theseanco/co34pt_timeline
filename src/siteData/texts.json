@@ -1,0 +1,21 @@
+{
+  "images" : ["1 - bristol.jpg", "2 - bozar.jpg", "3 - oph.jpg", "4 - karlsruhe.jpg"],
+  "names" : [
+    "The Island, Bristol",
+"BOZAR, Brussels",
+"Old Police House, Gateshead",
+"Jubez, Karlsruhe"
+],
+  "texts": [
+    "Now, we're going to fluff this cloud. This is the way you take out your flustrations. You're the greatest thing that has ever been or ever will be. You're special. You're so very special. It's almost like something out of a fairytale book. Let's build an almighty mountain",
+    "We might as well make some Almighty mountains today as well, what the heck. Now it's beginning to make a little sense. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. Every day I learn",
+    "Isn't that fantastic that you can create an almighty tree that fast? How to paint. That's easy. What to paint. That's much harder. The least little bit can do so much. A big strong tree needs big strong roots",
+    "You've got to learn to fight the temptation to resist these things. Just let them happen. Let's get crazy. Let all these little things happen. Don't fight them. Learn to use them. Go out on a limb - that's where the fruit is. See there how easy that is"
+  ],
+  "sounds": [
+    "https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/audio/track1.mp3",
+    "https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/audio/track2.mp3",
+    "https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/audio/track3.mp3",
+    "https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/audio/track4.mp3"
+  ]
+}

@@ -1,0 +1,38 @@
+.carouselStyling {
+  padding-top: 7%;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-bottom: 7%;
+}
+
+.imageStyling {
+  object-fit: contain;
+  display: block;
+}
+
+.linkPointer {
+  cursor: pointer;
+}
+
+.centerSpinner {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  display: flex;
+  opacity: 0.9;
+}
+
+.leftSpinner {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 45%;
+}
+
+/*
+old CSS class to center the player, which actually wasn't necessary
+.carousel.carousel-slider {
+  margin: 0 auto !important;
+}
+*/

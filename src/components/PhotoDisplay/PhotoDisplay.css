@@ -1,0 +1,36 @@
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 600ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.imageDiv_landscape {
+  height: 83vh;
+  padding: 7%;
+  margin: 7%;
+  transition: all 0.5s ease;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imageDiv_portrait {
+  height: 60vh;
+  width: 90vw;
+  margin: 5%;
+  transition: all 0.5s ease;
+  background-position: center;
+  background-repeat: no-repeat;
+}
