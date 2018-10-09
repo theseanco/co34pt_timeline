@@ -16,6 +16,9 @@ todo:
 - Landing Page
 - Write text for albums
 
+REFACTORING - TODO:
+- PhotoDisplay.css styles removed
+
 Not working
 - Spinner doesn't work because of what seems like a broken load function in react-sound
 
@@ -27,16 +30,14 @@ Junked
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Carousel from './components/ImageCarousel/ImageCarousel';
-import Title from './components/Title/Title';
+import './appStylesheet.css'
 import AlgoraveTexts from './components/AlgoraveTexts/AlgoraveTexts'
+import AlgoraveTitles from './components/AlgoraveTitles/AlgoraveTitles'
 import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
 import siteData from './siteData/texts_final.json';
-import { ScaleLoader } from 'react-spinners'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'tachyons';
 import Sound from 'react-sound';
 import PlayIcon from './assets/images/icons8-play-50.png'
@@ -45,7 +46,9 @@ import ShuffleIcon from './assets/images/icons8-shuffle-50.png'
 import ForwardIcon from './assets/images/icons8-double-right-filled-50.png'
 import CrossIcon from './assets/images/icons8-delete-50.png'
 import MediaQuery from 'react-responsive'
-import { Container, Row, Col } from 'react-grid-system'
+
+//dummy stylesheet for grid testing
+import './grid.css'
 
 console.log(siteData.images.length)
 console.log(siteData.links)
@@ -190,26 +193,11 @@ class App extends Component {
         <div className="App">
           <MediaQuery orientation="portrait">
             <div className="vertical-styling">
-              <Container fluid={true}>
-                <Row>
                   <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'portrait'}/>
-                </Row>
-                <Row>
                   {/* dummy columns again*/}
-                  <Col md={4}>
-                  </Col>
-                  <Col md={4} className="bb">
                     <div className="center-text setcounter-margins">
                       <SetCounter number={pictureNumber+1} numberOf={siteData.images.length}/>
                     </div>
-                  </Col>
-                  <Col md={4}></Col>
-                </Row>
-                <Row>
-                  {/* some dummy columns to center the navbar and get a top border */}
-                  <Col md={4}>
-                  </Col>
-                  <Col md={4}>
                     <div className="center-navbar">
                       <NavBar
                         backButton={backButton}
@@ -223,39 +211,62 @@ class App extends Component {
                         className="bt"
                       />
                     </div>
-                  </Col>
-                  <Col md={4}>
-
-                  </Col>
-                </Row>
-
-                <Row>
                   <div className="bt horizontal-text">
                     <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"portrait-textMargins"}/>
                   </div>
-                </Row>
-              </Container>
             </div>
           </MediaQuery>
 
 
           <MediaQuery orientation="landscape">
+            {/* The classes for these containers are in grid.css*/}
+            <div className="landscape-container">
+
+              <div className="albumCover">
+                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+              </div>
+
+              <div className="navbar">
+                <NavBar
+                          backButton={backButton}
+                          forwardButton={forwardButton}
+                          shuffleIcon={ShuffleIcon}
+                          playButton={playButton}
+                          decrement={this.decrementCurrentPlaying}
+                          increment={this.incrementCurrentPlaying}
+                          play={this.playPauseButton}
+                          random={this.randomPictureNumber}
+                        />
+              </div>
+
+              <div className="albumCounter">
+                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+              </div>
+
+              <div className="albumTitle">
+                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+              </div>
+
+              <div className="albumText">
+                      <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+              </div>
+            </div>
+
+
+
+            {/*
             <div className="horizontal-styling">
-              <Container className="container-styling" fluid={true}>
-                <Row>
-                  <Col md={7}>
-                    <div onClick={this.playPauseButton}>
+
+                    <div onClick={this.playPauseButton} className="horizontalAlbumImage">
                       <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'landscape'}/>
                       <div className="setcounter-margins">
                       </div>
                     </div>
-                  </Col>
-                  <Col md={5} style={{lineHeight: '1'}}>
-                    <Row className="bl bw1 horizontal-right-rows" style={{display: "block"}}>
+
+                  <div className="horizontalAlbumInfo">
                       <div>
                         <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
                       </div>
-                      <br/>
                       <div>
                         <NavBar
                           backButton={backButton}
@@ -268,14 +279,10 @@ class App extends Component {
                           random={this.randomPictureNumber}
                         />
                       </div>
-                    </Row>
-                    <Row className="bl bw1 horizontal-right-rows">
                       <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
-                    </Row>
-                  </Col>
-                </Row>
-              </Container>
+                    </div>
             </div>
+            */}
           </MediaQuery>
 
           <SoundPlayer

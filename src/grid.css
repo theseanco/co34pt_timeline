@@ -1,0 +1,38 @@
+.landscape-container {
+  padding: 1em;
+  height: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 11fr 9fr;
+  grid-template-rows: 2fr 1fr 3fr 7fr;
+  grid-template-areas:
+  "albumCover navbar"
+  "albumCover albumCounter"
+  "albumCover albumTitle"
+  "albumCover albumText"
+}
+
+.albumCover {
+  background-color: green;
+  grid-area: albumCover;
+}
+
+.navbar {
+  background-color: slategrey;
+  grid-area: navbar;
+}
+
+.albumCounter {
+  background-color: coral;
+  grid-area: albumCounter;
+}
+
+.albumTitle {
+  background-color: yellow;
+  grid-area: albumTitle;
+}
+
+.albumText {
+  background-color: red;
+  grid-area: albumText;
+}
