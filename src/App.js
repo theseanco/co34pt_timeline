@@ -227,6 +227,7 @@ class App extends Component {
               </div>
 
               <div className="navbar">
+                <div>
                 <NavBar
                           backButton={backButton}
                           forwardButton={forwardButton}
@@ -237,18 +238,23 @@ class App extends Component {
                           play={this.playPauseButton}
                           random={this.randomPictureNumber}
                         />
+                </div>
               </div>
 
               <div className="albumCounter">
+                <div>
                 <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+              </div>
               </div>
 
               <div className="albumTitle">
+                <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                </div>
+                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText">
-                      <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
             </div>
 

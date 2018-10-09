@@ -12,8 +12,7 @@ const AlgoraveTexts = ({ pictureNumber, texts, titles, links, margins }) => {
 
   return (
       <div className={`courier `}>
-        <p className="algoraveText f4 calisto">{texts[pictureNumber % 1]}</p>
-        <p> <a href={links[pictureNumber]}>Download</a> </p>
+        <a href={links[pictureNumber]}>Download</a> 
       </div>
       )
 }

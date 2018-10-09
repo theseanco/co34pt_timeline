@@ -22,11 +22,7 @@ const PhotoDisplay = ({ images, pictureNumber, orientation }) => {
   let appearTransition = 'true';
 
   return (
-
-
-    <CSSTransitionGroup transitionName="example">
-            <div className={`imageDiv_${orientation}`} style={divStyle}></div>
-      </CSSTransitionGroup>
+        <div className="imageDiv" style={divStyle}></div>
       )
 }
 
