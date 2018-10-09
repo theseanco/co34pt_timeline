@@ -1,29 +1,10 @@
 /*
 
-DON'T FORGET ABOUT YOUR PLAY VALUE, I TURNED IT OFF BC IT'S ANNOYING
+Todo:
 
-This uses:
-
-react
-react-responsive-carousel
-react-sound
-react-spinners
-
-
-todo:
-
-- Text and title transitions
-- Landing Page
-- Write text for albums
-
-REFACTORING - TODO:
-- PhotoDisplay.css styles removed
-
-Not working
-- Spinner doesn't work because of what seems like a broken load function in react-sound
-
-Junked
-- Centered carousel looked like shit, even after I spent fucking ages centering the cunt
+- Make sure all picture divs occupy the same height in portrait
+- Add overlay much like SJT-Web-2 to explain the page
+- Checkbox for autoplay
 
 */
 
@@ -52,16 +33,6 @@ import './grid.css'
 
 console.log(siteData.images.length)
 console.log(siteData.links)
-
-/*
-function importAll(r) {
-let images = {};
-r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-return images;
-}
-
-const icons = importAll(require.context('./assets/images', false, '/\.ico/'));
-*/
 
 let containerStyle = {
   'max-width': '100%'
@@ -231,31 +202,6 @@ class App extends Component {
               </div>
             </div>
 
-
-            {/*
-            <div className="vertical-styling">
-                  <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'portrait'}/>
-                    <div className="center-text setcounter-margins">
-                      <SetCounter number={pictureNumber+1} numberOf={siteData.images.length}/>
-                    </div>
-                    <div className="center-navbar">
-                      <NavBar
-                        backButton={backButton}
-                        forwardButton={forwardButton}
-                        shuffleIcon={ShuffleIcon}
-                        playButton={playButton}
-                        decrement={this.decrementCurrentPlaying}
-                        increment={this.incrementCurrentPlaying}
-                        play={this.playPauseButton}
-                        random={this.randomPictureNumber}
-                        className="bt"
-                      />
-                    </div>
-                  <div className="bt horizontal-text">
-                    <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"portrait-textMargins"}/>
-                  </div>
-            </div>
-            */}
           </MediaQuery>
 
 
