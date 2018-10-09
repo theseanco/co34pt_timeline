@@ -13,6 +13,20 @@
   "albumCover albumText"
 }
 
+.portrait-container {
+  display: grid;
+  height: 100%;
+  padding: 2rem;
+  grid-gap: .5rem;
+  grid-template-rows: 5fr 0.5fr 0.25fr 2fr;
+  grid-template-areas:
+  "albumCover"
+  "navbar"
+  "albumCounter"
+  "albumTitle"
+  "albumText"
+}
+
 .albumCover {
   grid-area: albumCover;
 }
@@ -59,5 +73,4 @@
 .albumText {
   grid-area: albumText;
   text-align: center;
-  border-top: 1px black
 }

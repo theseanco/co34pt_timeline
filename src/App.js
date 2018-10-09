@@ -192,9 +192,49 @@ class App extends Component {
 
         <div className="App">
           <MediaQuery orientation="portrait">
+
+            <div className="portrait-container">
+
+              <div className="albumCover">
+                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+              </div>
+
+              <div className="navbar">
+                <div>
+                <NavBar
+                          backButton={backButton}
+                          forwardButton={forwardButton}
+                          shuffleIcon={ShuffleIcon}
+                          playButton={playButton}
+                          decrement={this.decrementCurrentPlaying}
+                          increment={this.incrementCurrentPlaying}
+                          play={this.playPauseButton}
+                          random={this.randomPictureNumber}
+                        />
+                </div>
+              </div>
+
+              <div className="albumCounter">
+                <div>
+                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+              </div>
+              </div>
+
+              <div className="albumTitle">
+                <div>
+                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                </div>
+                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+              </div>
+
+              <div className="albumText">
+              </div>
+            </div>
+
+
+            {/*
             <div className="vertical-styling">
                   <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'portrait'}/>
-                  {/* dummy columns again*/}
                     <div className="center-text setcounter-margins">
                       <SetCounter number={pictureNumber+1} numberOf={siteData.images.length}/>
                     </div>
@@ -215,6 +255,7 @@ class App extends Component {
                     <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"portrait-textMargins"}/>
                   </div>
             </div>
+            */}
           </MediaQuery>
 
 
@@ -257,38 +298,6 @@ class App extends Component {
               <div className="albumText">
               </div>
             </div>
-
-
-
-            {/*
-            <div className="horizontal-styling">
-
-                    <div onClick={this.playPauseButton} className="horizontalAlbumImage">
-                      <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'landscape'}/>
-                      <div className="setcounter-margins">
-                      </div>
-                    </div>
-
-                  <div className="horizontalAlbumInfo">
-                      <div>
-                        <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
-                      </div>
-                      <div>
-                        <NavBar
-                          backButton={backButton}
-                          forwardButton={forwardButton}
-                          shuffleIcon={ShuffleIcon}
-                          playButton={playButton}
-                          decrement={this.decrementCurrentPlaying}
-                          increment={this.incrementCurrentPlaying}
-                          play={this.playPauseButton}
-                          random={this.randomPictureNumber}
-                        />
-                      </div>
-                      <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
-                    </div>
-            </div>
-            */}
           </MediaQuery>
 
           <SoundPlayer
