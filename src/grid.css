@@ -18,7 +18,7 @@
   height: 100%;
   padding: .5rem;
   grid-gap: .5rem;
-  grid-template-rows: 5fr 0.5fr 0.25fr 2fr;
+  grid-template-rows: 5fr 0.5fr 0.25fr 3fr;
   grid-template-areas:
   "albumCover"
   "navbar"

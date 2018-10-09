@@ -9,7 +9,7 @@ const SoundPlayer = ({ sounds, soundNumber, decrementFunction, audioState, loadF
   //a function to trigger the decrementing function when a track is finished playing
 const finishFunction = () => {
   //this may not be necessary
-  this.handleSongFinishedPlaying;
+  // this.handleSongFinishedPlaying;
   //go backwards
   decrementFunction();
 }
@@ -23,8 +23,8 @@ const finishFunction = () => {
         onLoading={this.handleSongLoading}
         onPlaying={this.handleSongPlaying}
         onFinishedPlaying={finishFunction}
-        volume={1}
-        onLoading={loadFunction}
+        volume={90}
+        // onLoading={loadFunction}
         onLoad={finishedLoadingFunction}
       />
     </div>

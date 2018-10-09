@@ -8,11 +8,9 @@ import './AlgoraveTextStyling.css'
 
 const AlgoraveTexts = ({ pictureNumber, texts, titles, links, margins }) => {
 
-  let titleDisplay = titles[pictureNumber];
-
   return (
       <div className={`courier `}>
-        <a href={links[pictureNumber]}>Download</a> 
+        <a href={links[pictureNumber]}>Download</a>
       </div>
       )
 }

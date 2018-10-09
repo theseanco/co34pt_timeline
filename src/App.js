@@ -5,12 +5,12 @@ Todo:
 - Make sure all picture divs occupy the same height in portrait
 - Add overlay much like SJT-Web-2 to explain the page
 - Checkbox for autoplay
+- Sort out warnings
 
 */
 
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
-import { render } from "react-dom";
 import './appStylesheet.css'
 import AlgoraveTexts from './components/AlgoraveTexts/AlgoraveTexts'
 import AlgoraveTitles from './components/AlgoraveTitles/AlgoraveTitles'
@@ -31,12 +31,6 @@ import MediaQuery from 'react-responsive'
 //dummy stylesheet for grid testing
 import './grid.css'
 
-console.log(siteData.images.length)
-console.log(siteData.links)
-
-let containerStyle = {
-  'max-width': '100%'
-}
 
 class App extends Component {
 
@@ -132,31 +126,27 @@ class App extends Component {
       sounds,
       links,
       audioState,
-      playButtonText,
-      soundLoading,
-      firstAlbum,
-      lastAlbum,
-      orientation} = this.state;
+      } = this.state;
 
       let playButton, forwardButton, backButton;
 
       //conditional statement controlling whether pause or play icon is displayed
       if (audioState === Sound.status.PLAYING) {
-        playButton = <img src={PauseIcon} />
+        playButton = <img src={PauseIcon} alt="Pause Icon"/>
       } else {
-        playButton = <img src={PlayIcon} />
+        playButton = <img src={PlayIcon} alt="Play Icon"/>
       }
 
       if (pictureNumber === 0) {
-        backButton = <img src={CrossIcon} />
+        backButton = <img src={CrossIcon} alt="Not Available"/>
       } else {
-        backButton = <img src={ForwardIcon} className="flipIcon" />
+        backButton = <img src={ForwardIcon} className="flipIcon" alt="Older Album" />
       }
 
       if (pictureNumber === siteData.texts.length-1) {
-        forwardButton = <img src={CrossIcon} />
+        forwardButton = <img src={CrossIcon} alt="Not Available"/>
       } else {
-        forwardButton = <img src={ForwardIcon} />
+        forwardButton = <img src={ForwardIcon} alt="More Recent Album"/>
       }
 
       return(

@@ -1,6 +1,5 @@
 import React from 'react';
 import './AlgoraveTitlesStyling.css'
-import TextTransition from "react-text-transition"
 
 //Texts are passed in from state, and the corresponding text number to be displayed is passed in from state
 //This component then displays them in a <p> tag
