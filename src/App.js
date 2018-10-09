@@ -1,42 +1,24 @@
 /*
 
-DON'T FORGET ABOUT YOUR PLAY VALUE, I TURNED IT OFF BC IT'S ANNOYING
+Todo:
 
-This uses:
-
-react
-react-responsive-carousel
-react-sound
-react-spinners
-
-
-todo:
-
-- Text and title transitions
-- Landing Page
-- Write text for albums
-
-Not working
-- Spinner doesn't work because of what seems like a broken load function in react-sound
-
-Junked
-- Centered carousel looked like shit, even after I spent fucking ages centering the cunt
+- Make sure all picture divs occupy the same height in portrait
+- Add overlay much like SJT-Web-2 to explain the page
+- Checkbox for autoplay
 
 */
 
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Carousel from './components/ImageCarousel/ImageCarousel';
-import Title from './components/Title/Title';
+import './appStylesheet.css'
 import AlgoraveTexts from './components/AlgoraveTexts/AlgoraveTexts'
+import AlgoraveTitles from './components/AlgoraveTitles/AlgoraveTitles'
 import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
 import siteData from './siteData/texts_final.json';
-import { ScaleLoader } from 'react-spinners'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'tachyons';
 import Sound from 'react-sound';
 import PlayIcon from './assets/images/icons8-play-50.png'
@@ -45,20 +27,12 @@ import ShuffleIcon from './assets/images/icons8-shuffle-50.png'
 import ForwardIcon from './assets/images/icons8-double-right-filled-50.png'
 import CrossIcon from './assets/images/icons8-delete-50.png'
 import MediaQuery from 'react-responsive'
-import { Container, Row, Col } from 'react-grid-system'
+
+//dummy stylesheet for grid testing
+import './grid.css'
 
 console.log(siteData.images.length)
 console.log(siteData.links)
-
-/*
-function importAll(r) {
-let images = {};
-r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-return images;
-}
-
-const icons = importAll(require.context('./assets/images', false, '/\.ico/'));
-*/
 
 let containerStyle = {
   'max-width': '100%'
@@ -189,75 +163,16 @@ class App extends Component {
 
         <div className="App">
           <MediaQuery orientation="portrait">
-            <div className="vertical-styling">
-              <Container fluid={true}>
-                <Row>
-                  <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'portrait'}/>
-                </Row>
-                <Row>
-                  {/* dummy columns again*/}
-                  <Col md={4}>
-                  </Col>
-                  <Col md={4} className="bb">
-                    <div className="center-text setcounter-margins">
-                      <SetCounter number={pictureNumber+1} numberOf={siteData.images.length}/>
-                    </div>
-                  </Col>
-                  <Col md={4}></Col>
-                </Row>
-                <Row>
-                  {/* some dummy columns to center the navbar and get a top border */}
-                  <Col md={4}>
-                  </Col>
-                  <Col md={4}>
-                    <div className="center-navbar">
-                      <NavBar
-                        backButton={backButton}
-                        forwardButton={forwardButton}
-                        shuffleIcon={ShuffleIcon}
-                        playButton={playButton}
-                        decrement={this.decrementCurrentPlaying}
-                        increment={this.incrementCurrentPlaying}
-                        play={this.playPauseButton}
-                        random={this.randomPictureNumber}
-                        className="bt"
-                      />
-                    </div>
-                  </Col>
-                  <Col md={4}>
 
-                  </Col>
-                </Row>
+            <div className="portrait-container">
 
-                <Row>
-                  <div className="bt horizontal-text">
-                    <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"portrait-textMargins"}/>
-                  </div>
-                </Row>
-              </Container>
-            </div>
-          </MediaQuery>
+              <div className="albumCover">
+                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+              </div>
 
-
-          <MediaQuery orientation="landscape">
-            <div className="horizontal-styling">
-              <Container className="container-styling" fluid={true}>
-                <Row>
-                  <Col md={7}>
-                    <div onClick={this.playPauseButton}>
-                      <PhotoDisplay images={images} pictureNumber={pictureNumber} orientation={'landscape'}/>
-                      <div className="setcounter-margins">
-                      </div>
-                    </div>
-                  </Col>
-                  <Col md={5} style={{lineHeight: '1'}}>
-                    <Row className="bl bw1 horizontal-right-rows" style={{display: "block"}}>
-                      <div>
-                        <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
-                      </div>
-                      <br/>
-                      <div>
-                        <NavBar
+              <div className="navbar">
+                <div>
+                <NavBar
                           backButton={backButton}
                           forwardButton={forwardButton}
                           shuffleIcon={ShuffleIcon}
@@ -267,14 +182,67 @@ class App extends Component {
                           play={this.playPauseButton}
                           random={this.randomPictureNumber}
                         />
-                      </div>
-                    </Row>
-                    <Row className="bl bw1 horizontal-right-rows">
-                      <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
-                    </Row>
-                  </Col>
-                </Row>
-              </Container>
+                </div>
+              </div>
+
+              <div className="albumCounter">
+                <div>
+                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+              </div>
+              </div>
+
+              <div className="albumTitle">
+                <div>
+                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                </div>
+                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+              </div>
+
+              <div className="albumText">
+              </div>
+            </div>
+
+          </MediaQuery>
+
+
+          <MediaQuery orientation="landscape">
+            {/* The classes for these containers are in grid.css*/}
+            <div className="landscape-container">
+
+              <div className="albumCover">
+                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+              </div>
+
+              <div className="navbar">
+                <div>
+                <NavBar
+                          backButton={backButton}
+                          forwardButton={forwardButton}
+                          shuffleIcon={ShuffleIcon}
+                          playButton={playButton}
+                          decrement={this.decrementCurrentPlaying}
+                          increment={this.incrementCurrentPlaying}
+                          play={this.playPauseButton}
+                          random={this.randomPictureNumber}
+                        />
+                </div>
+              </div>
+
+              <div className="albumCounter">
+                <div>
+                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+              </div>
+              </div>
+
+              <div className="albumTitle">
+                <div>
+                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                </div>
+                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+              </div>
+
+              <div className="albumText">
+              </div>
             </div>
           </MediaQuery>
 

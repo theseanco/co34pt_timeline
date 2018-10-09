@@ -17,6 +17,15 @@
   transition: opacity 300ms ease-in;
 }
 
+.imageDiv {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*
 .imageDiv_landscape {
   height: 83vh;
   padding: 7%;
@@ -34,3 +43,4 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+*/

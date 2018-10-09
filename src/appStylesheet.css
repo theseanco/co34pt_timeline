@@ -1,0 +1,72 @@
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background-image: linear-gradient(to top, #29323c, #313a45, #38434f, #404c59, #485563);
+}
+
+#root {
+  height: 100%
+}
+
+.App {
+  text-align: center;
+  height: 100%
+}
+
+.carouselStyling {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-right-rows {
+  margin-top: 10em;
+  margin-bottom: 10em;
+  padding-left: 5%
+}
+
+.flipIcon {
+  -moz-transform: scaleX(-1);
+-o-transform: scaleX(-1);
+-webkit-transform: scaleX(-1);
+transform: scaleX(-1);
+filter: FlipH;
+-ms-filter: "FlipH";
+}
+
+/*grid styling for the horizontal orientation*/
+.horizontal-styling {
+  display: grid;
+  height: 100%;
+}
+
+.horizontalAlbumImage {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 8;
+  height: 100%;
+}
+
+.horizontalAlbumInfo {
+  grid-column: 3 / span 2;
+  height: 100%
+}
+
+.center-navbar {
+  text-align: center;
+  padding-top: 2%
+}
+
+.horizontal-text {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.setcounter-margins {
+  margin-bottom: 0px
+}
