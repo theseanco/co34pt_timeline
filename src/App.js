@@ -4,8 +4,10 @@ Todo:
 
 - This branch: Transition between images, text and titles.
 
+- Bug found on the first album where the play button will not reappear
 - Checkbox for autoplay
 - Randomness on shuffle button shouldn't include the already present value
+- Add bottom bar
 - Add a visualiser?
 
 */
