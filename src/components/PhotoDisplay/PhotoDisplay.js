@@ -1,5 +1,6 @@
 import React from 'react';
-import './PhotoDisplay.css'
+import './PhotoDisplay.css';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 //sourced from here: https://codepen.io/jjmartucci/pen/avqPBW
 
 /*

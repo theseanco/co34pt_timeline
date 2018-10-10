@@ -2,9 +2,11 @@
 
 Todo:
 
-- Checkbox for autoplay
+- This branch: Transition between images, text and titles.
 
+- Checkbox for autoplay
 - Randomness on shuffle button shouldn't include the already present value
+- Add a visualiser?
 
 */
 
