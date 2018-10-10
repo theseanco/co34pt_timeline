@@ -2,10 +2,8 @@
 
 Todo:
 
-- Make sure all picture divs occupy the same height in portrait
 - Add overlay much like SJT-Web-2 to explain the page
 - Checkbox for autoplay
-- Sort out warnings
 
 */
 
@@ -160,7 +158,7 @@ class App extends Component {
                 <PhotoDisplay images={images} pictureNumber={pictureNumber} />
               </div>
 
-              <div className="navbar">
+              <div className="navbar portrait-margins">
                 <div>
                 <NavBar
                           backButton={backButton}
@@ -175,20 +173,20 @@ class App extends Component {
                 </div>
               </div>
 
-              <div className="albumCounter">
+              <div className="albumCounter portrait-margins">
                 <div>
                 <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
               </div>
               </div>
 
-              <div className="albumTitle">
+              <div className="albumTitle portrait-margins">
                 <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
                 </div>
                 <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
-              <div className="albumText">
+              <div className="albumText portrait-margins">
               </div>
             </div>
 
