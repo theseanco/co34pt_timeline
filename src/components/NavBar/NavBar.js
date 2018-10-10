@@ -6,8 +6,6 @@ A simple component that renders a navbar based on provided characteristics
 
 This takes a lot of props, and can probably be made simpler
 
-But i don't quite know how
-
 */
 
 const NavBar = ({ playButton, forwardButton, backButton, shuffleIcon, decrement, play, increment, random}) => {

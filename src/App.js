@@ -2,8 +2,10 @@
 
 Todo:
 
-- Add overlay much like SJT-Web-2 to explain the page
 - Checkbox for autoplay
+
+- First set is bugged (Play icon doesn't re-appear once finished, )
+- Randomness on shuffle button shouldn't include the already present value
 
 */
 
@@ -16,6 +18,7 @@ import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
+import Overlay from './components/Overlay/Overlay'
 import siteData from './siteData/texts_final.json';
 import 'tachyons';
 import Sound from 'react-sound';
@@ -150,6 +153,7 @@ class App extends Component {
       return(
 
         <div className="App">
+          <Overlay />
           <MediaQuery orientation="portrait">
 
             <div className="portrait-container">

@@ -79,3 +79,7 @@
   grid-area: albumText;
   text-align: center;
 }
+
+a {
+  color: darkgrey
+}
