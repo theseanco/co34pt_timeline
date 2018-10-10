@@ -5,14 +5,6 @@ import './ImageCarousel.css'
 //A carousel displaying all images with accompanying dropover titles
 //receives the titles of the image and the picture number to display as props
 
-/*
-IDEAS:
-
-Use the onfinish() function to scroll through the recordings I have made over time
-
-
-*/
-
 export default ({imageTitles, pictureNumber, images, openBandcamp, playPause}) => (
   <Carousel
     autoPlay={false}

@@ -2,8 +2,9 @@
 
 Todo:
 
-- Add overlay much like SJT-Web-2 to explain the page
 - Checkbox for autoplay
+
+- Randomness on shuffle button shouldn't include the already present value
 
 */
 
@@ -16,6 +17,7 @@ import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
+import Overlay from './components/Overlay/Overlay'
 import siteData from './siteData/texts_final.json';
 import 'tachyons';
 import Sound from 'react-sound';
@@ -26,8 +28,6 @@ import ForwardIcon from './assets/images/icons8-double-right-filled-50.png'
 import CrossIcon from './assets/images/icons8-delete-50.png'
 import MediaQuery from 'react-responsive'
 
-//dummy stylesheet for grid testing
-import './grid.css'
 
 
 class App extends Component {
@@ -137,19 +137,24 @@ class App extends Component {
 
       if (pictureNumber === 0) {
         backButton = <img src={CrossIcon} alt="Not Available"/>
+        console.log("back button is a cross", pictureNumber)
       } else {
         backButton = <img src={ForwardIcon} className="flipIcon" alt="Older Album" />
+        console.log("back button is a back", pictureNumber)
       }
 
-      if (pictureNumber === siteData.texts.length-1) {
+      if (pictureNumber === siteData.images.length-1) {
         forwardButton = <img src={CrossIcon} alt="Not Available"/>
+        console.log("forward button is a cross", pictureNumber)
       } else {
         forwardButton = <img src={ForwardIcon} alt="More Recent Album"/>
+        console.log("forward button is a forward", pictureNumber)
       }
 
       return(
 
         <div className="App">
+          <Overlay />
           <MediaQuery orientation="portrait">
 
             <div className="portrait-container">
