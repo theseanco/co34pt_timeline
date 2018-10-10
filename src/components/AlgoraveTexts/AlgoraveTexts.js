@@ -10,7 +10,7 @@ const AlgoraveTexts = ({ pictureNumber, texts, titles, links, margins }) => {
 
   return (
       <div className={`courier `}>
-        <a href={links[pictureNumber]}>Download</a>
+        <a href={links[pictureNumber]}>Bandcamp</a>
       </div>
       )
 }

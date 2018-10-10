@@ -31,7 +31,7 @@ class Overlay extends React.Component {
 
        <p>This web app is used to play short snippets of each set uploaded to Bandcamp. The transport controls can be used to choose or shuffle through available sets, and when a set has played, the next oldest set will be played, eventually reaching my first live set.</p>
 
-       <p>Created using Reactjs, MediaQuery and react-sound</p>
+       <p>Created using <a href="https://reactjs.org/">React</a>, <a href="https://github.com/leoasis/react-sound">react-sound</a> and <a href="https://github.com/contra/react-responsive">MediaQuery</a></p>
      </div>
       <div className="bottom-alignment">
        <a className="closeButton" onClick={() => {this.setState({hide: true})}}>Close</a>

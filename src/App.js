@@ -4,7 +4,6 @@ Todo:
 
 - Checkbox for autoplay
 
-- First set is bugged (Play icon doesn't re-appear once finished, )
 - Randomness on shuffle button shouldn't include the already present value
 
 */
@@ -140,14 +139,18 @@ class App extends Component {
 
       if (pictureNumber === 0) {
         backButton = <img src={CrossIcon} alt="Not Available"/>
+        console.log("back button is a cross", pictureNumber)
       } else {
         backButton = <img src={ForwardIcon} className="flipIcon" alt="Older Album" />
+        console.log("back button is a back", pictureNumber)
       }
 
-      if (pictureNumber === siteData.texts.length-1) {
+      if (pictureNumber === siteData.images.length-1) {
         forwardButton = <img src={CrossIcon} alt="Not Available"/>
+        console.log("forward button is a cross", pictureNumber)
       } else {
         forwardButton = <img src={ForwardIcon} alt="More Recent Album"/>
+        console.log("forward button is a forward", pictureNumber)
       }
 
       return(
