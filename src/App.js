@@ -28,8 +28,6 @@ import ForwardIcon from './assets/images/icons8-double-right-filled-50.png'
 import CrossIcon from './assets/images/icons8-delete-50.png'
 import MediaQuery from 'react-responsive'
 
-//dummy stylesheet for grid testing
-import './grid.css'
 
 
 class App extends Component {
