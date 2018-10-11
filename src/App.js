@@ -108,6 +108,11 @@ class App extends Component {
     }
   }
 
+  pauseSound = () => {
+    this.setState({audioState:Sound.status.PAUSED});
+      this.setState({playButtonText:'Play'})
+  }
+
   soundLoading = () => {
     console.log('loading');
     this.setState({soundLoading:true});
@@ -250,6 +255,7 @@ class App extends Component {
             audioState={audioState}
             loadFunction={this.soundLoading}
             finishedLoadingFunction={this.soundNotLoading}
+            endingFunction={this.pauseSound}
           />
 
 

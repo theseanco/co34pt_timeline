@@ -4,14 +4,18 @@ import Sound from 'react-sound'
 //Texts are passed in from state, and the corresponding text number to be displayed is passed in from state
 //This component then displays them in a <p> tag
 
-const SoundPlayer = ({ sounds, soundNumber, decrementFunction, audioState, loadFunction, finishedLoadingFunction }) => {
+const SoundPlayer = ({ sounds, soundNumber, decrementFunction, audioState, loadFunction, finishedLoadingFunction, endingFunction}) => {
 
   //a function to trigger the decrementing function when a track is finished playing
 const finishFunction = () => {
   //this may not be necessary
   // this.handleSongFinishedPlaying;
   //go backwards
+  if (soundNumber < 0 ) {
   decrementFunction();
+} else {
+  endingFunction();
+}
 }
 
   return (
