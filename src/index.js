@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
+import pausePlayReducer from './store/reducers/pausePlayReducer';
+import transportReducer from './store/reducers/transportReducer';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const reducerFunction = combineReducers({
+  pausePlay: pausePlayReducer,
+  transport: transportReducer
+})
+
+const store = createStore(reducerFunction);
+
+ReactDOM.render(
+  <Provider store={store}>
+  <App />
+  </Provider>,
+  document.getElementById('root'));
 registerServiceWorker();
