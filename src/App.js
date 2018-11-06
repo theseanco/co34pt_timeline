@@ -21,7 +21,7 @@ import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
-import Overlay from './components/Overlay/Overlay'
+import IntroModal from './components/Overlay/Overlay'
 import siteData from './siteData/texts_final.json';
 import 'tachyons';
 import Sound from 'react-sound';
@@ -163,7 +163,7 @@ class App extends Component {
       return(
 
         <div className="App">
-          <Overlay />
+          <IntroModal />
           <MediaQuery orientation="portrait">
 
             <div className="portrait-container">

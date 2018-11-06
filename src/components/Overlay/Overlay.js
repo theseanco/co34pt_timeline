@@ -4,7 +4,7 @@ import './Overlay.css'
 
 const componentClasses = ['overlay-styling'];
 
-class Overlay extends React.Component {
+class IntroModal extends React.Component {
 
   constructor(props) {
     super(props),
@@ -41,4 +41,4 @@ class Overlay extends React.Component {
 }
 }
 
-export default Overlay
+export default IntroModal
