@@ -17,9 +17,10 @@ But i don't quite know how
 class PhotoDisplay extends Component {
 
   render() {
-    const {images,
+    const {
+      images,
       pictureNumber,
-    orientation} = this.props;
+    } = this.props;
 
     let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
 //  let imagesrc = `https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/covers-cropped/cover${pictureNumber}.jpg`;
@@ -33,7 +34,8 @@ class PhotoDisplay extends Component {
 
 const mapStateToProps = state => {
   return {
-    pictureNumber: state.transport.number
+    pictureNumber: state.transport.number,
+    images: state.data.images
   }
 }
 
