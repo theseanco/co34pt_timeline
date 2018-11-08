@@ -23,7 +23,6 @@ const pausePlayReducer = ( state = initialState, action ) => {
     default:
       return state
   }
-  return state
 }
 
 export default pausePlayReducer;
