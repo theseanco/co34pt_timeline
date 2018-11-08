@@ -31,36 +31,12 @@ import NavBar from './components/NavBar/NavBar'
 import SetCounter from './components/SetCounter/SetCounter'
 import PhotoDisplay from './components/PhotoDisplay/PhotoDisplay'
 import IntroModal from './components/Overlay/Overlay'
-import siteData from './siteData/texts_final.json';
 import 'tachyons';
-import Sound from 'react-sound';
 import MediaQuery from 'react-responsive'
 
 
 
 class App extends Component {
-
-  constructor() {
-    super();
-    /*
-    Guide to state:
-
-    pictureNumber = number of album that is currently playing
-    texts = information texts about each album
-    titles = title of the set
-    images = cover art for the albums
-    links = links to each album
-    audioState = tracks if an album is playing
-    playButtonText = used to control the text of a navigation button (not currently used)
-    soundLoading = Used if sound is loading (not currently used)
-    firstAlbum = is this the first album of the set? - used to grey out buttons
-    lastAlbum = is this the last album of the set? - used to grey out buttons
-    */
-    this.state = {
-      sounds: siteData.sounds,
-      audioState: Sound.status.STOPPED
-    }
-  };
 
   render() {
       return(

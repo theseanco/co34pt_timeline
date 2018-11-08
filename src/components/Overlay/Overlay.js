@@ -7,7 +7,7 @@ const componentClasses = ['overlay-styling'];
 class IntroModal extends React.Component {
 
   constructor(props) {
-    super(props),
+    super(props)
     this.state = {hide: false}
   }
 

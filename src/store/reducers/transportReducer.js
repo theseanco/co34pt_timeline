@@ -32,8 +32,9 @@ const transportReducer = ( state = initialState, action ) => {
         ...state,
         number: Math.floor(Math.random()*(siteData.images.length))
       }
+    default:
+      return state
   }
-  return state
 }
 
 export default transportReducer;
