@@ -26,7 +26,8 @@ class AlgoraveTitles extends Component {
 
 const mapStateToProps = state => {
   return {
-    pictureNumber: state.transport.number
+    pictureNumber: state.transport.number,
+    titles: state.data.titles
   }
 }
 

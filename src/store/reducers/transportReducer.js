@@ -6,7 +6,7 @@ import siteData from '../../siteData/texts_final.json'
 //maxLimit
 const initialState = {
   number: siteData.images.length-1,
-  maxNumber: siteData.images.length-1
+  maxNumber: siteData.images.length
 }
 
 const maxNumber = siteData.images.length-1

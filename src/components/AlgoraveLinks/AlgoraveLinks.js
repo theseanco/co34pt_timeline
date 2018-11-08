@@ -28,7 +28,8 @@ class AlgoraveLinks extends Component {
 
 const mapStateToProps = state => {
   return {
-    pictureNumber: state.transport.number
+    pictureNumber: state.transport.number,
+    links: state.data.links
   }
 }
 

@@ -57,23 +57,10 @@ class App extends Component {
     lastAlbum = is this the last album of the set? - used to grey out buttons
     */
     this.state = {
-      pictureNumber: siteData.images.length-1,
-      texts: siteData.texts,
-      titles: siteData.names,
-      images: siteData.images,
       sounds: siteData.sounds,
-      links: siteData.links,
-      audioState: Sound.status.STOPPED,
-      soundLoading: true,
-      orientation: '',
+      audioState: Sound.status.STOPPED
     }
   };
-
-  //This uses global variable evilness but I think react-router would help a lot with this maybe.
-  openCurrentBandcamp = () => {
-    //opens current bandcamp page
-    window.open(this.state.links[this.state.pictureNumber])
-  }
 
   pauseSound = () => {
     this.setState({audioState:Sound.status.PAUSED});
@@ -111,7 +98,7 @@ class App extends Component {
             <div className="portrait-container">
 
               <div className="albumCover">
-                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+                <PhotoDisplay />
               </div>
 
               <div className="navbar portrait-margins">
@@ -122,15 +109,15 @@ class App extends Component {
 
               <div className="albumCounter portrait-margins">
                 <div>
-                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+                <SetCounter />
               </div>
               </div>
 
               <div className="albumTitle portrait-margins">
                 <div>
-                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                <AlgoraveTitles />
                 </div>
-                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks  margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText portrait-margins">
@@ -145,7 +132,7 @@ class App extends Component {
             <div className="landscape-container">
 
               <div className="albumCover">
-                <PhotoDisplay images={images} pictureNumber={pictureNumber} />
+                <PhotoDisplay />
               </div>
 
               <div className="navbar">
@@ -156,15 +143,15 @@ class App extends Component {
 
               <div className="albumCounter">
                 <div>
-                <SetCounter number={pictureNumber}  numberOf={siteData.images.length}/>
+                <SetCounter />
               </div>
               </div>
 
               <div className="albumTitle">
                 <div>
-                <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
+                <AlgoraveTitles />
                 </div>
-                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText">
