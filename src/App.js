@@ -70,16 +70,11 @@ class App extends Component {
 
   /*sets picture number, to be referenced by other things*/
 
+  /*
   //sets a random picture number
   randomPictureNumber = () => {
     let math = Math.floor(Math.random()*(siteData.images.length));
     this.setState({pictureNumber:math})
-  }
-
-  //This uses global variable evilness but I think react-router would help a lot with this maybe.
-  openCurrentBandcamp = () => {
-    //opens current bandcamp page
-    window.open(this.state.links[this.state.pictureNumber])
   }
 
   decrementCurrentPlaying = () => {
@@ -95,6 +90,15 @@ class App extends Component {
       this.setState({pictureNumber:(this.state.pictureNumber + 1)})
     }
   }
+  */
+
+  //This uses global variable evilness but I think react-router would help a lot with this maybe.
+  openCurrentBandcamp = () => {
+    //opens current bandcamp page
+    window.open(this.state.links[this.state.pictureNumber])
+  }
+
+
 
   //Function which changes the text in play/pause button when pressed
   playPauseButton = () => {
