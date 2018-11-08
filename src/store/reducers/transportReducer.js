@@ -28,9 +28,10 @@ const transportReducer = ( state = initialState, action ) => {
       }
     case actionTypes.RANDOM_TRACK:
           console.log(state.number);
+
       return {
         ...state,
-        counter: Math.floor(Math.random()*(siteData.images.length))
+        number: Math.floor(Math.random()*(siteData.images.length))
       }
   }
   return state
