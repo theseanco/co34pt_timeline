@@ -99,7 +99,6 @@ class App extends Component {
   }
 
 
-
   //Function which changes the text in play/pause button when pressed
   playPauseButton = () => {
     if (this.state.playButtonText === 'Pause') {
