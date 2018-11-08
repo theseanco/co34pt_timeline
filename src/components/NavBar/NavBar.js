@@ -36,7 +36,13 @@ class NavBar extends Component {
   return (
       <div>
           <span className="flipIcon" onClick={decrementTrack}>{backButton}</span>
-          <span onClick={() => {playing ? pause() : play()}}>{playButton}</span>
+          <span onClick={() => {playing ? pause() : play()}}>
+          {
+            playing ?
+            pauseButton :
+            playButton
+          }
+          </span>
           <span onClick={incrementTrack}>{forwardButton}</span>
           <span onClick={randomTrack}>{shuffleIcon}</span>
       </div>
