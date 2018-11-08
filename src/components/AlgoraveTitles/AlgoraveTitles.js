@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import './AlgoraveTitlesStyling.css'
 
 //Texts are passed in from state, and the corresponding text number to be displayed is passed in from state
@@ -6,8 +7,11 @@ import './AlgoraveTitlesStyling.css'
 //pictureNumber, texts, titles and links are all information from the texts.json file
 //margins is a classname prop passed in as a string, this is used to control the margins for portrait and landscape versions of the site.
 
-const AlgoraveTitles = ({ pictureNumber, titles}) => {
+class AlgoraveTitles extends Component {
 
+  render () {
+
+    const {pictureNumber, titles} = this.props
   let titleDisplay = titles[pictureNumber];
 
   return (
@@ -18,5 +22,12 @@ const AlgoraveTitles = ({ pictureNumber, titles}) => {
       </div>
       )
 }
+}
 
-export default AlgoraveTitles;
+const mapStateToProps = state => {
+  return {
+    pictureNumber: state.transport.number
+  }
+}
+
+export default connect(mapStateToProps,null)(AlgoraveTitles);

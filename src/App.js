@@ -2,20 +2,29 @@
 
 Todo:
 
+REDUX:
+
+- Load all site data into Redux store
+- Use site data to:
+  - Display image
+  - Album Text
+  - Load Bandcamp
+  - Play Sound
+
 - This branch: Transition between images, text and titles.
 
-- Bug found on the first album where the play button will not reappear
 - Checkbox for autoplay
-- Randomness on shuffle button shouldn't include the already present value
 - Add bottom bar
 - Add a visualiser?
+
+
 
 */
 
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
 import './appStylesheet.css'
-import AlgoraveTexts from './components/AlgoraveTexts/AlgoraveTexts'
+import AlgoraveLinks from './components/AlgoraveLinks/AlgoraveLinks'
 import AlgoraveTitles from './components/AlgoraveTitles/AlgoraveTitles'
 import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
@@ -25,11 +34,6 @@ import IntroModal from './components/Overlay/Overlay'
 import siteData from './siteData/texts_final.json';
 import 'tachyons';
 import Sound from 'react-sound';
-import PlayIcon from './assets/images/icons8-play-50.png'
-import PauseIcon from './assets/images/icons8-pause-50.png'
-import ShuffleIcon from './assets/images/icons8-shuffle-50.png'
-import ForwardIcon from './assets/images/icons8-double-right-filled-50.png'
-import CrossIcon from './assets/images/icons8-delete-50.png'
 import MediaQuery from 'react-responsive'
 
 
@@ -60,52 +64,15 @@ class App extends Component {
       sounds: siteData.sounds,
       links: siteData.links,
       audioState: Sound.status.STOPPED,
-      playButtonText: 'Pause',
       soundLoading: true,
-      firstAlbum: false,
-      lastAlbum: false,
       orientation: '',
     }
   };
-
-  /*sets picture number, to be referenced by other things*/
-
-  //sets a random picture number
-  randomPictureNumber = () => {
-    let math = Math.floor(Math.random()*(siteData.images.length));
-    this.setState({pictureNumber:math})
-  }
 
   //This uses global variable evilness but I think react-router would help a lot with this maybe.
   openCurrentBandcamp = () => {
     //opens current bandcamp page
     window.open(this.state.links[this.state.pictureNumber])
-  }
-
-  decrementCurrentPlaying = () => {
-    //ensures negative set numbers are not being read.
-    if (this.state.pictureNumber - 1 >= 0) {
-      this.setState({pictureNumber:(this.state.pictureNumber - 1)});
-    }
-  }
-
-  incrementCurrentPlaying = () => {
-    //ensures no references outside of the array of current sets
-    if (this.state.pictureNumber <= siteData.images.length - 2) {
-      this.setState({pictureNumber:(this.state.pictureNumber + 1)})
-    }
-  }
-
-  //Function which changes the text in play/pause button when pressed
-  playPauseButton = () => {
-    if (this.state.playButtonText === 'Pause') {
-      this.setState({audioState:Sound.status.PAUSED});
-      this.setState({playButtonText:'Play'})
-    }
-    if (this.state.playButtonText === 'Play') {
-      this.setState({audioState:Sound.status.PLAYING});
-      this.setState({playButtonText:'Pause'})
-    }
   }
 
   pauseSound = () => {
@@ -135,31 +102,6 @@ class App extends Component {
       audioState,
       } = this.state;
 
-      let playButton, forwardButton, backButton;
-
-      //conditional statement controlling whether pause or play icon is displayed
-      if (audioState === Sound.status.PLAYING) {
-        playButton = <img src={PauseIcon} alt="Pause Icon"/>
-      } else {
-        playButton = <img src={PlayIcon} alt="Play Icon"/>
-      }
-
-      if (pictureNumber === 0) {
-        backButton = <img src={CrossIcon} alt="Not Available"/>
-        console.log("back button is a cross", pictureNumber)
-      } else {
-        backButton = <img src={ForwardIcon} className="flipIcon" alt="Older Album" />
-        console.log("back button is a back", pictureNumber)
-      }
-
-      if (pictureNumber === siteData.images.length-1) {
-        forwardButton = <img src={CrossIcon} alt="Not Available"/>
-        console.log("forward button is a cross", pictureNumber)
-      } else {
-        forwardButton = <img src={ForwardIcon} alt="More Recent Album"/>
-        console.log("forward button is a forward", pictureNumber)
-      }
-
       return(
 
         <div className="App">
@@ -174,16 +116,7 @@ class App extends Component {
 
               <div className="navbar portrait-margins">
                 <div>
-                <NavBar
-                          backButton={backButton}
-                          forwardButton={forwardButton}
-                          shuffleIcon={ShuffleIcon}
-                          playButton={playButton}
-                          decrement={this.decrementCurrentPlaying}
-                          increment={this.incrementCurrentPlaying}
-                          play={this.playPauseButton}
-                          random={this.randomPictureNumber}
-                        />
+                <NavBar/>
                 </div>
               </div>
 
@@ -197,7 +130,7 @@ class App extends Component {
                 <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
                 </div>
-                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText portrait-margins">
@@ -217,16 +150,7 @@ class App extends Component {
 
               <div className="navbar">
                 <div>
-                <NavBar
-                          backButton={backButton}
-                          forwardButton={forwardButton}
-                          shuffleIcon={ShuffleIcon}
-                          playButton={playButton}
-                          decrement={this.decrementCurrentPlaying}
-                          increment={this.incrementCurrentPlaying}
-                          play={this.playPauseButton}
-                          random={this.randomPictureNumber}
-                        />
+                <NavBar/>
                 </div>
               </div>
 
@@ -240,7 +164,7 @@ class App extends Component {
                 <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
                 </div>
-                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText">
