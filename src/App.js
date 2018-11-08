@@ -15,7 +15,7 @@ Todo:
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
 import './appStylesheet.css'
-import AlgoraveTexts from './components/AlgoraveTexts/AlgoraveTexts'
+import AlgoraveLinks from './components/AlgoraveLinks/AlgoraveLinks'
 import AlgoraveTitles from './components/AlgoraveTitles/AlgoraveTitles'
 import SoundPlayer from './components/SoundPlayer/SoundPlayer'
 import NavBar from './components/NavBar/NavBar'
@@ -200,7 +200,7 @@ class App extends Component {
                 <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
                 </div>
-                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText portrait-margins">
@@ -243,7 +243,7 @@ class App extends Component {
                 <div>
                 <AlgoraveTitles pictureNumber={pictureNumber} titles={titles} />
                 </div>
-                <AlgoraveTexts pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
+                <AlgoraveLinks pictureNumber={pictureNumber} texts={texts} titles={titles} links={links} margins={"landscape-textMargins"}/>
               </div>
 
               <div className="albumText">
