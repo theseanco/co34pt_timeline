@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import PlayIcon from '../../assets/images/icons8-play-50.png';
+import PauseIcon from '../../assets/images/icons8-pause-50.png';
+import ForwardButton from '../../assets/images/icons8-double-right-filled-50.png';
+import ShuffleIcon from '../../assets/images/icons8-shuffle-50.png';
 
 import * as actionTypes from '../../store/actions'
 
@@ -17,21 +21,24 @@ class NavBar extends Component {
 
   render() {
     const {backButton,
-      playButton,
-      forwardButton,
-      shuffleIcon,
       decrementTrack,
       randomTrack,
       incrementTrack,
       pause,
+      playing,
       play} = this.props;
 
+      const forwardButton = <img src={ForwardButton} alt="forward/back" />;
+      const playButton = <img src={PlayIcon} alt="Play" />;
+      const pauseButton = <img src={PauseIcon} alt="Pause" />;
+      const shuffleIcon = <img src={ShuffleIcon} alt="shuffle" />
+
   return (
-            <div>
+      <div>
           <span className="flipIcon" onClick={decrementTrack}>{backButton}</span>
-          <span onClick={play}>{playButton}</span>
+          <span onClick={() => {playing ? pause() : play()}}>{playButton}</span>
           <span onClick={incrementTrack}>{forwardButton}</span>
-          <img src={shuffleIcon} onClick={randomTrack} alt="Shuffle"></img>
+          <span onClick={randomTrack}>{shuffleIcon}</span>
       </div>
       )
 }
@@ -47,4 +54,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(NavBar);
+const mapStateToProps = state => {
+  return {
+    playing: state.pausePlay.playing
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(NavBar);
