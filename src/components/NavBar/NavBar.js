@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './NavBar.css';
 import PlayIcon from '../../assets/images/icons8-play-50.png';
 import PauseIcon from '../../assets/images/icons8-pause-50.png';
-import ForwardButton from '../../assets/images/icons8-double-right-filled-50.png';
+import ForwardIcon from '../../assets/images/icons8-double-right-filled-50.png';
 import ShuffleIcon from '../../assets/images/icons8-shuffle-50.png';
+import CrossIcon from '../../assets/images/icons8-delete-50.png';
 
 import * as actionTypes from '../../store/actions'
 
@@ -20,31 +22,39 @@ This takes a lot of props, and can probably be made simpler
 class NavBar extends Component {
 
   render() {
-    const {backButton,
+    const {
       decrementTrack,
       randomTrack,
+      maxNumber,
+      pictureNumber,
       incrementTrack,
       pause,
       playing,
       play} = this.props;
 
-      const forwardButton = <img src={ForwardButton} alt="forward/back" />;
+      const forwardButton = <img src={ForwardIcon} alt="forward/back" />;
+      const backButton = <img src={ForwardIcon} className="flipIcon" alt="forward/back" />;
       const playButton = <img src={PlayIcon} alt="Play" />;
       const pauseButton = <img src={PauseIcon} alt="Pause" />;
-      const shuffleIcon = <img src={ShuffleIcon} alt="shuffle" />
+      const shuffleButton = <img src={ShuffleIcon} alt="shuffle" />
+      const crossButton = <img src={CrossIcon} alt="Not Available" />
 
   return (
       <div>
-          <span className="flipIcon" onClick={decrementTrack}>{backButton}</span>
-          <span onClick={() => {playing ? pause() : play()}}>
-          {
-            playing ?
-            pauseButton :
-            playButton
-          }
+          <span
+          onClick={() => {if(pictureNumber !== 0) {decrementTrack()}}}>
+          {pictureNumber !== 0 ? backButton : crossButton}
           </span>
-          <span onClick={incrementTrack}>{forwardButton}</span>
-          <span onClick={randomTrack}>{shuffleIcon}</span>
+
+          <span onClick={() => {playing ? pause() : play()}}>
+          {playing ? pauseButton : playButton}
+          </span>
+
+          <span onClick={() => {if(pictureNumber !== maxNumber){incrementTrack()}}}>
+          {pictureNumber !== maxNumber ? forwardButton : crossButton}
+          </span>
+
+          <span onClick={randomTrack}>{shuffleButton}</span>
       </div>
       )
 }
@@ -62,7 +72,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    playing: state.pausePlay.playing
+    playing: state.pausePlay.playing,
+    pictureNumber: state.transport.number,
+    maxNumber: state.transport.maxNumber
   }
 }
 
