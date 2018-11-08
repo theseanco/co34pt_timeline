@@ -62,35 +62,8 @@ class App extends Component {
     }
   };
 
-  pauseSound = () => {
-    this.setState({audioState:Sound.status.PAUSED});
-      this.setState({playButtonText:'Play'})
-  }
-
-  soundLoading = () => {
-    console.log('loading');
-    this.setState({soundLoading:true});
-  }
-
-  soundNotLoading = () => {
-    console.log('done loading');
-    this.setState({soundLoading:false})
-  }
-
-
   render() {
-    //destructuring state
-    const {pictureNumber,
-      texts,
-      titles,
-      images,
-      sounds,
-      links,
-      audioState,
-      } = this.state;
-
       return(
-
         <div className="App">
           <IntroModal />
           <MediaQuery orientation="portrait">
@@ -159,15 +132,7 @@ class App extends Component {
             </div>
           </MediaQuery>
 
-          <SoundPlayer
-            sounds={sounds}
-            soundNumber={pictureNumber}
-            decrementFunction={this.decrementCurrentPlaying}
-            audioState={audioState}
-            loadFunction={this.soundLoading}
-            finishedLoadingFunction={this.soundNotLoading}
-            endingFunction={this.pauseSound}
-          />
+          <SoundPlayer/>
 
 
 
