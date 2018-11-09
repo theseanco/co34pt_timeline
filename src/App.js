@@ -9,11 +9,8 @@ Todo:
 - Add a visualiser?
 
 ROUTING:
-- Add function to Redux which feeds an album number in as a payload
-- Programmatically generate routing and paths for all albums
-- Increment/decrement buttons change both URL and props
-- URLs in bounds return the correct album
 - URLs out of bounds either return a 404 or move to the most recent album
+- Push URL of current album after IntroModal is closed
 
 */
 
@@ -34,13 +31,15 @@ class App extends Component {
         <Router>
         <div>
           <Switch>
-          <Route path="/" exact render={(props) => (
+          <Route path="/" exact render={props => (
             <div>
             <IntroModal />
-            <Player />
+            <Player {...props}/>
             </div>
           )
-          } />
+          }
+          // component={Player}
+           />
           <Route path="/:id" component={Player} />
           </Switch>
           </div>
