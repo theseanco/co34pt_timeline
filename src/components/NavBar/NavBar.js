@@ -50,8 +50,8 @@ class NavBar extends Component {
           {playing ? pauseButton : playButton}
           </span>
 
-          <span onClick={() => {if(pictureNumber !== maxNumber){incrementTrack()}}}>
-          {pictureNumber !== maxNumber ? forwardButton : crossButton}
+          <span onClick={() => {if(pictureNumber !== maxNumber - 1){incrementTrack()}}}>
+          {pictureNumber !== maxNumber - 1 ? forwardButton : crossButton}
           </span>
 
           <span onClick={randomTrack}>{shuffleButton}</span>
