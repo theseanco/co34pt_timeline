@@ -1,5 +1,6 @@
-import React from 'react'
-import './Overlay.css'
+import React from 'react';
+import './Overlay.css';
+import { connect } from 'react-redux';
 
 
 const componentClasses = ['overlay-styling'];
@@ -9,6 +10,12 @@ class IntroModal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {hide: false}
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.maxNumber);
+    //eslint-disable-next-line
+    history.pushState(null,null,'/'+`${this.props.maxNumber}`)
   }
 
   //Setting up CSS transitions for the overlay, using the class show to push an opacity level to overlay-styling
@@ -41,4 +48,10 @@ class IntroModal extends React.Component {
 }
 }
 
-export default IntroModal
+const mapStateToProps = state => {
+  return {
+  maxNumber: state.transport.maxNumber
+}
+}
+
+export default connect(mapStateToProps, null)(IntroModal)

@@ -21,7 +21,7 @@ class Player extends Component {
       //strip non-numeric characters from path
       const pathName = Number(this.props.location.pathname.replace(/\D/g,''));
       //fire redux function if it's within bounds.
-      if (pathName >= 1 && pathName <= this.props.maxNumber+1) {
+      if (pathName >= 1 && pathName <= this.props.maxNumber) {
       this.props.switchTrack(pathName-1);
       }
     }
