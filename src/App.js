@@ -2,20 +2,18 @@
 
 Todo:
 
-REDUX:
-
-- Load all site data into Redux store
-- Use site data to:
-  - Display image
-  - Album Text
-  - Load Bandcamp
-  - Play Sound
-
 - This branch: Transition between images, text and titles.
 
 - Checkbox for autoplay
 - Add bottom bar
 - Add a visualiser?
+
+ROUTING:
+- Add function to Redux which feeds an album number in as a payload
+- Programmatically generate routing and paths for all albums
+- Increment/decrement buttons change both URL and props
+- URLs in bounds return the correct album
+- URLs out of bounds either return a 404 or move to the most recent album
 
 
 
@@ -43,9 +41,7 @@ class App extends Component {
         <div className="App">
           <IntroModal />
           <MediaQuery orientation="portrait">
-
             <div className="portrait-container">
-
               <div className="albumCover">
                 <PhotoDisplay />
               </div>
@@ -72,12 +68,10 @@ class App extends Component {
               <div className="albumText portrait-margins">
               </div>
             </div>
-
           </MediaQuery>
 
 
           <MediaQuery orientation="landscape">
-            {/* The classes for these containers are in grid.css*/}
             <div className="landscape-container">
 
               <div className="albumCover">
@@ -109,9 +103,6 @@ class App extends Component {
           </MediaQuery>
 
           <SoundPlayer/>
-
-
-
 </div>
 )
 }

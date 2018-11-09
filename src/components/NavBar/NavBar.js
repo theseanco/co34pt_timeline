@@ -66,7 +66,8 @@ const mapDispatchToProps = dispatch => {
     decrementTrack: () => dispatch({type:actionTypes.DECREMENT_TRACK}),
     randomTrack: () => dispatch({type:actionTypes.RANDOM_TRACK}),
     pause: () => dispatch({type:actionTypes.PAUSE}),
-    play: () => dispatch({type:actionTypes.PLAY})
+    play: () => dispatch({type:actionTypes.PLAY}),
+    switchTrack: (result) => dispatch({type: actionTypes.SELECT_TRACK, value: result})
   }
 }
 
