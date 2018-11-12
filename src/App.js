@@ -9,7 +9,6 @@ Todo:
 - Add a visualiser?
 
 ROUTING:
-- URLs out of bounds either return a 404 or move to the most recent album
 - Push URL of current album after IntroModal is closed
 
 */
