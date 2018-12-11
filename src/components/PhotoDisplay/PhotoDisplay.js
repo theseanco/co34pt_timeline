@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CrossfadeImage from 'react-crossfade-image'
 import './PhotoDisplay.css';
 import ReactCSSTransitionReplace from 'react-css-transition-replace';
 //sourced from here: https://codepen.io/jjmartucci/pen/avqPBW
@@ -14,25 +15,6 @@ But i don't quite know how
 
 */
 
-//function to import all, used with require.context to import directories
-//imports all pieces as an object
-function importAll(r) {
-    let images = {}
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-}
-
-//function to import all, used with require.context to import directories
-//imports all URLs as an array - not written yet.
-function importAllArray(r) {
-    let images = {}
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-}
-
-//import all images
-const imageUrls = importAll(require.context('../../assets/images/albumCovers', false, /\.(png|jpg|svg)$/));
-
 class PhotoDisplay extends Component {
 
   render() {
@@ -41,20 +23,13 @@ class PhotoDisplay extends Component {
       pictureNumber,
     } = this.props;
 
-  // let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
+  let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
   // let imagesrc = `https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/covers-cropped/cover${pictureNumber}.jpg`;
- let divStyle = {backgroundImage: `url(${images[2]})`};
+  let divStyle = {backgroundImage: `url(${imagesrc})`};
 
   return (
-         <div className="imageDiv">
-          {
-            Object.keys(imageUrls).map((item, index) => {
-              console.log(item);
-              let computedClass = index === pictureNumber + 1 ? 'slide active' : 'slide';
-              return <div className={computedClass}> <img className="imageScaling" src={imageUrls[`cover${index}.jpg`]} /></div>
-            })
-          }
-         </div>
+        <div className="imageDiv" style={divStyle}>
+        </div>
       )
 }
 }

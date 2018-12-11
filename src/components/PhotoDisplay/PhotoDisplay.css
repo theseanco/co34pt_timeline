@@ -18,30 +18,11 @@
 }
 
 .imageDiv {
-  position: relative;
   height: 100%;
   width: 100%;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.slide {
-  position: absolute;
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  transition: opacity .75s ease-in-out;
-}
-
-.active {
-  opacity: 1
-}
-
-/* class to scale the image to within the available div */
-.imageScaling {
-  max-width: 100%;
-  max-height: 100%;
 }
 
 /*
