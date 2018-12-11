@@ -16,7 +16,7 @@ class AlgoraveTitles extends Component {
 
   return (
       <div className={`courier `}>
-        <div className="f1 b">
+        <div className="f1 b fontsize">
             {titleDisplay}
         </div>
       </div>
