@@ -9,6 +9,7 @@ import SetCounter from '../../components/SetCounter/SetCounter';
 import PhotoDisplay from '../../components/PhotoDisplay/PhotoDisplay';
 import 'tachyons';
 import MediaQuery from 'react-responsive';
+import BottomBar from '../../components/BottomBar/BottomBar';
 import * as actionTypes from '../../store/actions';
 
 
@@ -61,6 +62,8 @@ class Player extends Component {
 
               <div className="albumText portrait-margins">
               </div>
+
+              <BottomBar />
             </div>
           </MediaQuery>
 
@@ -89,12 +92,16 @@ class Player extends Component {
                 <AlgoraveTitles />
                 </div>
                 <AlgoraveLinks margins={"landscape-textMargins"}/>
+                <BottomBar />
               </div>
 
               <div className="albumText">
               </div>
+
+
               </div>
           </MediaQuery>
+
 
           <SoundPlayer/>
           </div>
