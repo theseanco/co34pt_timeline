@@ -9,8 +9,6 @@ const initialState = {
   maxNumber: siteData.images.length
 }
 
-const maxNumber = siteData.images.length-1
-
 const transportReducer = ( state = initialState, action ) => {
   switch ( action.type ) {
     case actionTypes.INCREMENT_TRACK:

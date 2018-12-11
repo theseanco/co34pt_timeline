@@ -13,7 +13,6 @@ class IntroModal extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.maxNumber);
     //eslint-disable-next-line
     history.pushState(null,null,'/'+`${this.props.maxNumber}`)
   }
@@ -41,7 +40,7 @@ class IntroModal extends React.Component {
 
        <p>Created using <a href="https://reactjs.org/">React</a>, <a href="https://github.com/leoasis/react-sound">react-sound</a> and <a href="https://github.com/contra/react-responsive">MediaQuery</a></p>
       <div className="bottom-alignment">
-       <a className="closeButton" onClick={() => {this.setState({hide: true})}}>Close</a>
+       <button className="closeButton" onClick={() => {this.setState({hide: true})}}>Close</button>
      </div>
      </div>
      </div>
