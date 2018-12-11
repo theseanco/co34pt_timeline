@@ -49,7 +49,6 @@ class PhotoDisplay extends Component {
          <div className="imageDiv">
           {
             Object.keys(imageUrls).map((item, index) => {
-              console.log(item);
               let computedClass = index === pictureNumber ? 'slide active' : 'slide';
               return <div className={computedClass}> <img className="imageScaling" src={imageUrls[`cover${index+1}.jpg`]} /></div>
             })
