@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CrossfadeImage from 'react-crossfade-image'
 import './PhotoDisplay.css';
 import ReactCSSTransitionReplace from 'react-css-transition-replace';
 //sourced from here: https://codepen.io/jjmartucci/pen/avqPBW
@@ -22,12 +23,13 @@ class PhotoDisplay extends Component {
       pictureNumber,
     } = this.props;
 
-    let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
-//  let imagesrc = `https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/covers-cropped/cover${pictureNumber}.jpg`;
+  let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
+  // let imagesrc = `https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/covers-cropped/cover${pictureNumber}.jpg`;
   let divStyle = {backgroundImage: `url(${imagesrc})`};
 
   return (
-        <div className="imageDiv" style={divStyle}></div>
+        <div className="imageDiv" style={divStyle}>
+        </div>
       )
 }
 }

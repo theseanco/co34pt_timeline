@@ -24,10 +24,44 @@
 
 .overlayText {
   padding-top: 0rem;
-  padding-left: 1rem;
-  padding-right: 2rem;
+  padding-left: 1em;
+  padding-right: 1em;
   text-align: justify;
 }
+
+h1 {
+  text-align: center;
+}
+
+/* To go up to tablet size */
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .overlayText {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  font-size: 1.2em;
+  text-align: center
+ }
+}
+
+/* for centering vertically and horizontally on larger screens */
+@media only screen and (min-width: 1200px) {
+  /* For desktop: */
+  .overlayText {
+  padding-left: 13rem;
+  padding-right: 13rem;
+  font-size: 1.2em;
+  text-align: center
+ }
+
+ .flexcontainer {
+   height: 100%;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+}
+
 
 .overlayText:nth-child(1) {
   margin-top: 0

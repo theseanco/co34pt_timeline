@@ -5,6 +5,7 @@
   "homepage": "http://theseanco.github.io/co34pt_timeline",
   "dependencies": {
     "react": "^16.6.0",
+    "react-crossfade-image": "^1.1.1",
     "react-css-transition-replace": "^3.0.3",
     "react-dom": "^16.6.0",
     "react-grid-system": "^4.3.1",

@@ -27,8 +27,9 @@ class IntroModal extends React.Component {
 
   return (
     <div className={componentClasses.join(' ')}>
-       <h1>co34pt Portfolio</h1>
+    <div className="flexcontainer">
        <div className="overlayText">
+       <h1>co34pt Portfolio</h1>
 
        <p>This app is a player & portfolio showcasing snippets of co34pt live coding sets that have been uploaded to Bandcamp</p>
 
@@ -39,9 +40,10 @@ class IntroModal extends React.Component {
        <p>This web app is used to play short snippets of each set uploaded to Bandcamp. The transport controls can be used to choose or shuffle through available sets, and when a set has played, the next oldest set will be played, eventually reaching my first live set.</p>
 
        <p>Created using <a href="https://reactjs.org/">React</a>, <a href="https://github.com/leoasis/react-sound">react-sound</a> and <a href="https://github.com/contra/react-responsive">MediaQuery</a></p>
-     </div>
       <div className="bottom-alignment">
        <a className="closeButton" onClick={() => {this.setState({hide: true})}}>Close</a>
+     </div>
+     </div>
      </div>
     </div>
   )
