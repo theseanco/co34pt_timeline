@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './PhotoDisplay.css';
-import ReactCSSTransitionReplace from 'react-css-transition-replace';
 //sourced from here: https://codepen.io/jjmartucci/pen/avqPBW
 
 /*
@@ -18,14 +17,7 @@ But i don't quite know how
 //imports all pieces as an object
 function importAll(r) {
     let images = {}
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-}
-
-//function to import all, used with require.context to import directories
-//imports all URLs as an array - not written yet.
-function importAllArray(r) {
-    let images = {}
+    //eslint-disable-next-line
     r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
     return images;
 }
@@ -37,20 +29,15 @@ class PhotoDisplay extends Component {
 
   render() {
     const {
-      images,
-      pictureNumber,
+      pictureNumber
     } = this.props;
-
-  // let imagesrc = require(`../../assets/images/${images[pictureNumber]}`);
-  // let imagesrc = `https://raw.githubusercontent.com/theseanco/co34pt_timeline/master/covers-cropped/cover${pictureNumber}.jpg`;
- let divStyle = {backgroundImage: `url(${images[2]})`};
 
   return (
          <div className="imageDiv">
           {
             Object.keys(imageUrls).map((item, index) => {
               let computedClass = index === pictureNumber ? 'slide active' : 'slide';
-              return <div className={computedClass}> <img className="imageScaling" src={imageUrls[`cover${index+1}.jpg`]} /></div>
+              return <div className={computedClass} key={index}> <img className="imageScaling" src={imageUrls[`cover${index+1}.jpg`]} alt="Album Cover" /></div>
             })
           }
          </div>
@@ -60,8 +47,7 @@ class PhotoDisplay extends Component {
 
 const mapStateToProps = state => {
   return {
-    pictureNumber: state.transport.number,
-    images: state.data.images
+    pictureNumber: state.transport.number
   }
 }
 

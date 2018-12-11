@@ -15,7 +15,7 @@ ROUTING:
 
 // https://www.npmjs.com/package/react-responsive-carousel
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './appStylesheet.css'
 import IntroModal from './components/Overlay/Overlay'
 import 'tachyons';

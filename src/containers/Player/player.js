@@ -7,7 +7,6 @@ import SoundPlayer from '../../components/SoundPlayer/SoundPlayer';
 import NavBar from '../../components/NavBar/NavBar';
 import SetCounter from '../../components/SetCounter/SetCounter';
 import PhotoDisplay from '../../components/PhotoDisplay/PhotoDisplay';
-import IntroModal from '../../components/Overlay/Overlay';
 import 'tachyons';
 import MediaQuery from 'react-responsive';
 import * as actionTypes from '../../store/actions';
