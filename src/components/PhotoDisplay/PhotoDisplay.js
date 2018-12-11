@@ -15,16 +15,23 @@ But i don't quite know how
 */
 
 //function to import all, used with require.context to import directories
-
+//imports all pieces as an object
 function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    let images = {}
+    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+    return images;
+}
+
+//function to import all, used with require.context to import directories
+//imports all URLs as an array - not written yet.
+function importAllArray(r) {
+    let images = {}
+    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
     return images;
 }
 
 //import all images
 const imageUrls = importAll(require.context('../../assets/images/albumCovers', false, /\.(png|jpg|svg)$/));
-console.log(Object.keys(imageUrls));
 
 class PhotoDisplay extends Component {
 
@@ -40,8 +47,13 @@ class PhotoDisplay extends Component {
 
   return (
          <div className="imageDiv">
-         //next job is to run a map function over all of the images available. 
-          <img src={imageUrls['cover1.jpg']} />
+          {
+            Object.keys(imageUrls).map((item, index) => {
+              console.log(item);
+              let computedClass = index === pictureNumber + 1 ? 'slide active' : 'slide';
+              return <div className={computedClass}> <img className="imageScaling" src={imageUrls[`cover${index}.jpg`]} /></div>
+            })
+          }
          </div>
       )
 }
