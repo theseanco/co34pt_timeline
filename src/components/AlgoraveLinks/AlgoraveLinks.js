@@ -20,7 +20,7 @@ class AlgoraveLinks extends Component {
 
   return (
       <div className={`courier `}>
-        <a href={links[pictureNumber]}>Bandcamp</a>
+        <a href={links[pictureNumber]}>Full Set</a>
       </div>
       )
 }
