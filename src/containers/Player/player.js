@@ -35,11 +35,15 @@ class Player extends Component {
     console.log("The tracknumber being sent to Redux",Number(this.props.location.pathname.replace(/\D/g,'')));
       //strip non-numeric characters from path
       const pathName = Number(this.props.location.pathname.replace(/\D/g,''));
+      const idName = Number(this.props.match.params.id);
       //fire redux function if it's within bounds.
-      if (pathName >= 1 && pathName <= this.props.maxNumber) {
-      this.props.switchTrack(pathName-1);
-      }
+      if (idName >= 1 && idName <= this.props.maxNumber) {
+      this.props.switchTrack(idName-1);
+    } else {
+      //eslint-disable-next-line
+      history.pushState(null,null,process.env.PUBLIC_URL+'/'+`${this.props.maxNumber}`)
     }
+  }
 
   componentDidUpdate() {
     console.log("updated! Number", this.props.number);
