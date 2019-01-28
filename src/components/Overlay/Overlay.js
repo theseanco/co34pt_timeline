@@ -14,7 +14,7 @@ class IntroModal extends React.Component {
 
   componentDidUpdate() {
     //eslint-disable-next-line
-    history.pushState(null,null,'/'+`${this.props.maxNumber}`)
+    history.pushState(null,null,process.env.PUBLIC_URL+'/'+`${this.props.maxNumber}`)
   }
 
   //Setting up CSS transitions for the overlay, using the class show to push an opacity level to overlay-styling

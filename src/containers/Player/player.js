@@ -16,8 +16,22 @@ import * as actionTypes from '../../store/actions';
 
 class Player extends Component {
 
+  /*
+  react-router setup
+
+  If a page with /:id is located to we get:
+
+  this.props.match.params.id = a String of the URL number
+
+  */
+
+  constructor(props) {
+    super(props)
+  }
+
 
   componentDidMount() {
+    console.log(this.props, process.env.PUBLIC_URL)
       //strip non-numeric characters from path
       const pathName = Number(this.props.location.pathname.replace(/\D/g,''));
       //fire redux function if it's within bounds.
@@ -29,7 +43,7 @@ class Player extends Component {
   componentDidUpdate() {
     console.log("updated! Number", this.props.number);
     //eslint-disable-next-line
-    history.pushState(null,null,'/'+`${this.props.number+1}`)
+    history.pushState(null,null,process.env.PUBLIC_URL+'/'+`${this.props.number+1}`)
   }
 
   render() {
