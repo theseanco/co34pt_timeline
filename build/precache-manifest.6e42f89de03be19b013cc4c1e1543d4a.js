@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/co34pt_timeline/static/media/cover21.33e15668.jpg"
   },
   {
-    "revision": "f01bb1b6ecaa77fc95b9",
+    "revision": "e97d6fcfc63fc90a8868",
     "url": "/co34pt_timeline/static/css/main.2594dd1c.chunk.css"
   },
   {
@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "url": "/co34pt_timeline/static/media/cover20.0d65fbf1.jpg"
   },
   {
-    "revision": "f01bb1b6ecaa77fc95b9",
-    "url": "/co34pt_timeline/static/js/main.f01bb1b6.chunk.js"
+    "revision": "e97d6fcfc63fc90a8868",
+    "url": "/co34pt_timeline/static/js/main.e97d6fcf.chunk.js"
   },
   {
     "revision": "59b4352ddc73938811ab4cd1ce7dc121",
@@ -144,7 +144,7 @@ self.__precacheManifest = [
     "url": "/co34pt_timeline/static/css/1.4473b4eb.chunk.css"
   },
   {
-    "revision": "0304575752ef0b0d3baf5f9177fa69dd",
+    "revision": "8b81f710913ac0461651a880f603d8c8",
     "url": "/co34pt_timeline/index.html"
   }
 ];

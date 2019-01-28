@@ -31,7 +31,8 @@ class Player extends Component {
 
 
   componentDidMount() {
-    console.log(this.props, process.env.PUBLIC_URL)
+    console.log(this.props, process.env.PUBLIC_URL);
+    console.log("The tracknumber being sent to Redux",Number(this.props.location.pathname.replace(/\D/g,'')));
       //strip non-numeric characters from path
       const pathName = Number(this.props.location.pathname.replace(/\D/g,''));
       //fire redux function if it's within bounds.
