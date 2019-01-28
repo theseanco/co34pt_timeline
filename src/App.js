@@ -25,12 +25,13 @@ import Player from './containers/Player/player'
 
 class App extends Component {
 
+
   render() {
       return(
         <Router>
         <div>
           <Switch>
-          <Route path="/" exact render={props => (
+          <Route path={`${process.env.PUBLIC_URL}/`} exact render={props => (
             <div>
             <IntroModal />
             <Player {...props}/>
@@ -39,7 +40,7 @@ class App extends Component {
           }
           // component={Player}
            />
-          <Route path="/:id" component={Player} />
+          <Route path={`${process.env.PUBLIC_URL}/:id`} component={Player} />
           </Switch>
           </div>
         </Router>
